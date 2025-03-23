@@ -18,7 +18,7 @@ function App() {
             Even if you have never read the Bible before, we invite you to explore and see what it has to say in a way that makes sense.
           </p>
           <p className="coming-soon-text">
-            We're currently building something amazing—stay tuned for updates!
+            Check back daily for updates!
           </p>
           <div className="contact-section">
             <p>Have questions or feedback?</p>
