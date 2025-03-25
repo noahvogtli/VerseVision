@@ -23,9 +23,9 @@ function App() {
           <div className="contact-section">
             <p>Have questions or feedback?</p>
             <div className="contact-links">
-              <a href="mailto:noahvogtli88@gmail.com" className="contact-link">
+              <a href="mailto:noah@versevision.com" className="contact-link">
                 <span className="contact-icon">✉️</span>
-                noahvogtli88@gmail.com
+                noah@versevision.com
               </a>
               <a href="https://www.linkedin.com/in/noahvogtli/" className="contact-link" target="_blank" rel="noopener noreferrer">
                 <span className="contact-icon">🔗</span>
