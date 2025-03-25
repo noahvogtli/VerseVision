@@ -15,7 +15,7 @@ function App() {
             <br /><br />
             VerseVision is an AI-powered tool designed to help you dive deeper into scripture by breaking down verses with historical context, theological insights, and real-world applications.
             <br /><br />
-            Even if you have never read the Bible before, we invite you to explore and see what it has to say in a way that makes sense.
+            Even if you have never read the Bible before, I invite you to explore and see what it has to say in a way that makes sense.
           </p>
           <p className="coming-soon-text">
             Check back daily for updates!
