@@ -7,7 +7,7 @@ export const getVerseOfTheDay = () => {
   // Create a deterministic number based on the date
   const dateNumber = today.split('-').reduce((acc, val) => acc + parseInt(val), 0);
   
-  // Use the date number to select a verse (will be the same for everyone on the same day)
+  // Use the date number to select a verse
   const index = dateNumber % verses.length;
   
   return verses[index];
