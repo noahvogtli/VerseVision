@@ -1,8 +1,5 @@
 import verses from '../verses.json';
 
-const VERSE_OF_DAY_KEY = 'verseOfDay';
-const LAST_UPDATE_KEY = 'lastVerseUpdate';
-
 export const getVerseOfTheDay = () => {
   // Get today's date as a string (YYYY-MM-DD)
   const today = new Date().toISOString().split('T')[0];
