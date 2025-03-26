@@ -1,8 +1,37 @@
 import './App.css';
+import { useState, useEffect } from 'react';
+import VerseOfTheDay from './components/VerseOfTheDay';
+import { getVerseOfTheDay } from './utils/verseUtils';
 
 function App() {
+  const [verseOfDay, setVerseOfDay] = useState(null);
+
+  useEffect(() => {
+    // Get initial verse
+    setVerseOfDay(getVerseOfTheDay());
+
+    // Set up interval to check for midnight
+    const checkForMidnight = () => {
+      const now = new Date();
+      if (now.getHours() === 0 && now.getMinutes() === 0) {
+        setVerseOfDay(getVerseOfTheDay());
+      }
+    };
+
+    // Check every minute
+    const interval = setInterval(checkForMidnight, 60000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="App">
+      {verseOfDay && (
+        <VerseOfTheDay
+          verse={verseOfDay.verse}
+          text={verseOfDay.text}
+        />
+      )}
       <div className="coming-soon-container">
         <h1 className="title">Welcome to VerseVision!</h1>
         <div className="content">
