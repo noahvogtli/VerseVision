@@ -1,5 +1,10 @@
 {
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0",
+    "@types/node": "^22.13.13",
     "react-ga4": "^2.1.0"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
   }
 }
