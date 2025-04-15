@@ -6,6 +6,12 @@ require('dotenv').config();
 const app = express();
 const port = process.env.PORT || 3001;
 
+// Debug logging
+console.log('Environment variables loaded:', {
+  hasApiKey: !!process.env.ANTHROPIC_API_KEY,
+  apiKeyLength: process.env.ANTHROPIC_API_KEY?.length
+});
+
 app.use(cors());
 app.use(express.json());
 
@@ -16,6 +22,8 @@ const anthropic = new Anthropic({
 app.post('/api/chat', async (req, res) => {
   try {
     const { query } = req.body;
+    console.log('Received query:', query);
+    
     const msg = await anthropic.messages.create({
       model: "claude-3-5-haiku-20241022",
       max_tokens: 300,
@@ -26,7 +34,7 @@ app.post('/api/chat', async (req, res) => {
     
     res.json({ response: msg.content[0].text });
   } catch (error) {
-    console.error('Error:', error);
+    console.error('Detailed error:', error);
     res.status(500).json({ error: 'Failed to get response. Please try again.' });
   }
 });

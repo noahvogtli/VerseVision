@@ -36,7 +36,7 @@ function App() {
     setError('');
     
     try {
-      const res = await fetch('http://localhost:5000/api/chat', {
+      const res = await fetch('http://localhost:3001/api/chat', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -69,6 +69,7 @@ function App() {
   );
 
   return (
+    
     <div className="chat-container">
       <h1 className="title">VerseVision</h1>
       <div className="chat-box">
