@@ -58,6 +58,7 @@
   font-size: 1.8rem;
   font-weight: 600;
   text-align: center;
+  margin-left: -7.5vw;
   width: 100%;
   padding: 0 1rem;
 }
@@ -166,17 +167,18 @@
 }
 
 .chat-container {
-  width: 100%;
-  max-width: 800px;
-  height: 90vh;
+  margin-left: 17.5vw;
+  width: 80vw;
+  max-width: none;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   background: white;
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  margin: auto;
-  margin-top: 5vh;
+  /* margin-top: 5vh; */
+  align-content: center;
 }
 
 .chat-box {
@@ -244,6 +246,7 @@
   font-size: 1rem;
   outline: none;
   transition: border-color 0.2s ease;
+  
 }
 
 .query-input:focus {
@@ -283,15 +286,90 @@
   margin-right: 8px;
 }
 
+.char-counter {
+  font-size: 0.85rem;
+  color: #555;
+  text-align: right;
+  margin-top: 4px;
+  padding-right: 10px;
+}
+
+.side-bar {
+  width: 15vw;
+  height: 100vh;
+  background-color: #ffffff;
+  position: fixed;
+  left: 0;
+  top: 0;
+  border-right: 1px solid #e4e8eb;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+}
+
+.sidebar-content {
+  padding: 20px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-header {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e4e8eb;
+}
+
+.sidebar-header h2 {
+  color: #2c3e50;
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.sidebar-nav {
+  margin-top: 20px;
+}
+
+.sidebar-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-nav li {
+  padding: 12px 15px;
+  margin: 5px 0;
+  color: #2c3e50;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.sidebar-nav li:hover {
+  background-color: #f5f7fa;
+  color: #3498db;
+}
+
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
 
 @media (max-width: 768px) {
+  .side-bar {
+    width: 200px;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  .side-bar.open {
+    transform: translateX(0);
+  }
+
   .chat-container {
-    height: 100vh;
-    border-radius: 0;
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .title {
+    font-size: 1.5rem;
   }
   
   .message {
