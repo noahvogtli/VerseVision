@@ -4,7 +4,7 @@ const Anthropic = require('@anthropic-ai/sdk');
 require('dotenv').config();
 
 const app = express();
-const port = process.env.PORT || 3001;
+const port = 3001;
 
 // Debug logging
 console.log('Environment variables loaded:', {
