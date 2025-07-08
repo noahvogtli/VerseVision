@@ -3,10 +3,12 @@ import './App.css';
 import { useState, useRef, useEffect } from 'react';
 import Sidebar from './components/Sidebar';
 import Chat from './components/Chat';
+import Homepage from './components/Homepage';
 //npm run server
 //npm start
 
 const App = () => {
+  const [currentPage, setCurrentPage] = useState('home');
   const [messages, setMessages] = useState([]);
   const [query, setQuery] = useState('');
   const [loading, setLoading] = useState(false);
@@ -21,6 +23,10 @@ const App = () => {
   useEffect(() => {
     scrollToBottom();
   }, [messages]);
+
+  const handleNavigation = (page) => {
+    setCurrentPage(page);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -50,7 +56,7 @@ const App = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ query: userMessage }),
+        body: JSON.stringify({ query: userMessage, history: messages }),
       });
 
       if (!res.ok) {
@@ -68,18 +74,31 @@ const App = () => {
     }
   };
 
+  const renderContent = () => {
+    switch (currentPage) {
+      case 'home':
+        return <Homepage />;
+      case 'chat':
+        return (
+          <Chat 
+            messages={messages}
+            query={query}
+            setQuery={setQuery}
+            loading={loading}
+            error={error}
+            handleSubmit={handleSubmit}
+            messagesEndRef={messagesEndRef}
+          />
+        );
+      default:
+        return <Homepage />;
+    }
+  };
+
   return (
     <div>
-      <Sidebar />
-      <Chat 
-        messages={messages}
-        query={query}
-        setQuery={setQuery}
-        loading={loading}
-        error={error}
-        handleSubmit={handleSubmit}
-        messagesEndRef={messagesEndRef}
-      />
+      <Sidebar currentPage={currentPage} onNavigate={handleNavigation} />
+      {renderContent()}
     </div>
   );
 };
