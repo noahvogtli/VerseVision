@@ -344,7 +344,7 @@
 }
 
 .side-bar {
-  width: 15vw;
+  width: 25vw;
   height: 100vh;
   background-color: #ffffff;
   position: fixed;
@@ -601,7 +601,7 @@
     font-size: 2rem;
     margin-bottom: 1.5rem;
     line-height: 1.2;
-    margin-top: 25dvh;
+    margin-top: 30dvh;
   }
 
 }
