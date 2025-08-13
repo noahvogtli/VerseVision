@@ -537,7 +537,6 @@
 
   .homepage-content {
     margin: 0;
-  
     width: 90%;
     max-width: 100%;
     border-radius: 12px;
@@ -596,3 +595,13 @@
   }
 }
 
+
+@media (max-width: 450px) {
+  .homepage-title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    margin-top: 25dvh;
+  }
+
+}
