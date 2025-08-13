@@ -7,6 +7,9 @@ function Homepage() {
 
   return (
     <div className="homepage-wrapper">
+      <div className="homepage-banner">
+        <h1>VerseVision</h1>
+      </div>
       {verseOfDay && (
         <VerseOfTheDay
           verse={verseOfDay.verse}
