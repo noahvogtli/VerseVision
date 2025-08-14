@@ -1,6 +1,6 @@
 .verse-of-day-banner {
     background: transparent;
-    text-align: center;
+    max-width: 100dvw;
     font-family: 'Georgia', serif;
     position: relative;
     display: flex;
@@ -13,7 +13,6 @@
 }
 
 .verse-content {
-    text-align: center;
     background: white;
     padding: 1rem;
     /* border-radius: 16px; */
@@ -47,7 +46,6 @@
     .verse-of-day-banner {
         width: 70vw;
         min-width: 280px;
-        
     }
     
     .verse-content {

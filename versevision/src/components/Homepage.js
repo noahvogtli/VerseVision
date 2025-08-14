@@ -17,7 +17,7 @@ function Homepage() {
       )}
       <div className="homepage-container">
         <div className="homepage-content">
-          <div className="hero-section">
+          <div>
             <h1 className="homepage-title">VerseVision</h1>
             <p className="homepage-subtitle">Advanced Biblical Intelligence Platform</p>
             <p className="homepage-description">
