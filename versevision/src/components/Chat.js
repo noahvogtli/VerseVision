@@ -1,6 +1,6 @@
 import React from 'react';
 import '../App.css'; 
-import NormalLogo from '../data/NormalLogo.png';
+import Banner from './Banner';
 
 const Chat = ({ 
   messages, 
@@ -13,10 +13,7 @@ const Chat = ({
 }) => {
     return (
         <div className="chat-container">
-        <div className="homepage-banner">
-            <h1>VerseVision</h1>
-        <img src={NormalLogo} alt="VerseVision Logo" />
-      </div>
+        <Banner/>
         <div className="chat-box">
         <div className="messages">
             {messages.map((message, index) => (

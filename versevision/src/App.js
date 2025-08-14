@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from 'react';
 import Sidebar from './components/Sidebar';
 import Chat from './components/Chat';
 import Homepage from './components/Homepage';
+import Banner from './components/Banner';
 //npm run server
 //npm start
 
@@ -80,15 +81,17 @@ const App = () => {
         return <Homepage />;
       case 'chat':
         return (
+          <>
           <Chat 
-            messages={messages}
-            query={query}
-            setQuery={setQuery}
-            loading={loading}
-            error={error}
-            handleSubmit={handleSubmit}
-            messagesEndRef={messagesEndRef}
+          messages={messages}
+          query={query}
+          setQuery={setQuery}
+          loading={loading}
+          error={error}
+          handleSubmit={handleSubmit}
+          messagesEndRef={messagesEndRef}
           />
+          </>
         );
       default:
         return <Homepage />;

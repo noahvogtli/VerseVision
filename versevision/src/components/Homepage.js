@@ -1,17 +1,15 @@
 import React from 'react';
 import VerseOfTheDay from './VerseOfTheDay';
 import { getVerseOfTheDay } from '../utils/verseUtils';
-import slantedImage from '../data/NormalLogo.png';
+import Banner from './Banner';
+
 
 function Homepage() {
   const verseOfDay = getVerseOfTheDay();
 
   return (
     <div className="homepage-wrapper">
-      <div className="homepage-banner">
-        <h1>VerseVision</h1>
-        <img src={slantedImage} alt="VerseVision Logo" />
-      </div>
+      <Banner/>
       {verseOfDay && (
         <VerseOfTheDay
           verse={verseOfDay.verse}
