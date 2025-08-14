@@ -4,7 +4,6 @@ import { useState, useRef, useEffect } from 'react';
 import Sidebar from './components/Sidebar';
 import Chat from './components/Chat';
 import Homepage from './components/Homepage';
-import Banner from './components/Banner';
 //npm run server
 //npm start
 
