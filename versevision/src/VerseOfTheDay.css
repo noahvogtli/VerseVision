@@ -2,28 +2,29 @@
     background: transparent;
     text-align: center;
     font-family: 'Georgia', serif;
-    width: 100dvw;
-    min-width: 750px;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 2rem;
-    padding: 3rem 0;
+    padding-bottom: 2.5dvh;
     margin: 0 auto;
+    
 }
 
 .verse-content {
     text-align: center;
     background: white;
     padding: 1rem;
-    border-radius: 16px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-    width: 55dvw;
+    /* border-radius: 16px; */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    width: 100dvw;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    text-align: center;
+    
 }
 
 .verse-reference {
@@ -44,16 +45,14 @@
 /* Responsive adjustments to prevent banner from getting too small */
 @media (max-width: 768px) {
     .verse-of-day-banner {
-        width: 90vw;
+        width: 70vw;
         min-width: 280px;
-        padding: 2rem 0;
+        
     }
     
     .verse-content {
         margin: 0;
-        width: 90%;
-        max-width: 100%;
-        border-radius: 12px;
+        width: 100%;
         min-height: auto;
         height: auto;
         display: flex;
