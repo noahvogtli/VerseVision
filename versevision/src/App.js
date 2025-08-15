@@ -77,7 +77,7 @@ const App = () => {
   const renderContent = () => {
     switch (currentPage) {
       case 'home':
-        return <Homepage />;
+        return <Homepage onNavigate={handleNavigation} />;
       case 'chat':
         return (
           <>
@@ -93,7 +93,7 @@ const App = () => {
           </>
         );
       default:
-        return <Homepage />;
+        return <Homepage onNavigate={handleNavigation} />;
     }
   };
 

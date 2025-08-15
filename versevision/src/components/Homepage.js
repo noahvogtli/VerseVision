@@ -3,8 +3,11 @@ import VerseOfTheDay from './VerseOfTheDay';
 import { getVerseOfTheDay } from '../utils/verseUtils';
 import Banner from './Banner';
 
-function Homepage() {
+
+
+function Homepage({ onNavigate }) {
   const verseOfDay = getVerseOfTheDay();
+
 
   return (
     <div className="homepage-wrapper">
@@ -63,8 +66,12 @@ function Homepage() {
           <div className="homepage-cta">
             <h3>Begin Your Exploration</h3>
             <p>Access the Chat interface to commence your biblical research journey</p>
-            <div className="cta-button">
-              <span>Access Platform</span>
+            <div
+              className="cta-button"
+              onClick={() => onNavigate('chat')}
+              style={{ cursor: 'pointer' }}
+            >
+              <span>Access Chat</span>
             </div>
           </div>
         </div>
