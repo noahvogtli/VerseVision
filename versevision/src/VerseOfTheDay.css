@@ -44,7 +44,7 @@
 /* Responsive adjustments to prevent banner from getting too small */
 @media (max-width: 768px) {
     .verse-of-day-banner {
-        width: 70vw;
+        width: 100vw;
         min-width: 280px;
     }
     

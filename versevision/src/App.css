@@ -353,19 +353,21 @@
   justify-content: center;
   gap: 1.5rem;
   z-index: 100;
-  position: relative;
-  margin-left: 2rem;
-  
+  position: sticky;
+
+  top: 0;
   
 }
 
 .app-banner h1 {
   margin: 0;
   font-size: 2.5rem;
-  font-weight: 300;
+  font-weight: 400;
   color: #1a1a1a;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   letter-spacing: -0.02em;
+  margin-left: 2rem;
+  padding-left: 1rem;
 }
 
 .app-banner img {
@@ -717,7 +719,7 @@ img, svg {
 
   .app-banner h1 {
     font-size: 2rem;
-    margin-left: 0;
+    padding-left: 1rem;
   }
 
   .app-banner img {
