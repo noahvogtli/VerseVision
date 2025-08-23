@@ -2,12 +2,11 @@ import React from 'react';
 import VerseOfTheDay from './VerseOfTheDay';
 import { getVerseOfTheDay } from '../utils/verseUtils';
 import Banner from './Banner';
+import { useNavigate } from 'react-router-dom';
 
-
-
-function Homepage({ onNavigate }) {
+function Homepage() {
   const verseOfDay = getVerseOfTheDay();
-
+  const navigate = useNavigate();
 
   return (
     <div className="homepage-wrapper">
@@ -68,7 +67,7 @@ function Homepage({ onNavigate }) {
             <p>Access the Chat interface to commence your biblical research journey</p>
             <div
               className="cta-button"
-              onClick={() => onNavigate('chat')}
+              onClick={() => navigate('/chat')}
               style={{ cursor: 'pointer' }}
             >
               <span>Access Chat</span>

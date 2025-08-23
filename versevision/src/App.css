@@ -140,10 +140,11 @@
 /* Hamburger Button */
 .hamburger {
   position: fixed;
-  top: 2rem;
+  top: 2.5rem;
   left: 2rem;
   width: 2rem;
   height: 2rem;
+  
   background: none;
   border: none;
   cursor: pointer;
@@ -214,9 +215,9 @@
 }
 
 .sidebar-header {
-  padding-bottom: 2rem;
+  padding-bottom: 1rem;
   border-bottom: 1px solid #e5e5e5;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   
 }
 
@@ -226,6 +227,7 @@
   margin: 0;
   font-weight: 600;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  padding-left: 2.5rem;
 }
 
 .sidebar-nav {

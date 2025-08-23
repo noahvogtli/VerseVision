@@ -1,15 +1,25 @@
 import React, { useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
-function Sidebar({ currentPage, onNavigate }) {
+function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
-  const handleNavigation = (page) => {
-    onNavigate(page);
+  const handleNavigation = (path) => {
+    navigate(path);
     setIsOpen(false); // Close menu after navigation
+  };
+
+  const isActive = (path) => {
+    if (path === '/') {
+      return location.pathname === '/';
+    }
+    return location.pathname.startsWith(path);
   };
 
   return (
@@ -34,14 +44,14 @@ function Sidebar({ currentPage, onNavigate }) {
           <nav className="sidebar-nav">
             <ul>
               <li 
-                className={currentPage === 'home' ? 'active' : ''}
-                onClick={() => handleNavigation('home')}
+                className={isActive('/') ? 'active' : ''}
+                onClick={() => handleNavigation('/')}
               >
                 Home
               </li>
               <li 
-                className={currentPage === 'chat' ? 'active' : ''}
-                onClick={() => handleNavigation('chat')}
+                className={isActive('/chat') ? 'active' : ''}
+                onClick={() => handleNavigation('/chat')}
               >
                 Chat
               </li>
