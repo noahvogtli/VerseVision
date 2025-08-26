@@ -8,6 +8,7 @@ import { UserAuth } from '../context/AuthContext';
 const Signup = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [password2, setPassword2] = useState('')
   const [error, setError] = useState('')
   const [loading, setLoading] = useState('')
   const [success, setSuccess] = useState('')
@@ -16,26 +17,38 @@ const Signup = () => {
   const navigate = useNavigate()
   // console.log(session)
 
+  const checkMatchingPasswords = (password1, password2) => {
+    return password1 === password2;
+  }
+
+
   const handleSignUp = async (e) => {
     e.preventDefault()
     setLoading(true)
     setError('')
     setSuccess('')
     
-    try {
-      const result = await signUpNewUser(email, password)
-      if(result.success){
-        setSuccess('Account created successfully! Please check your email to confirm your account.')
-        setTimeout(() => {
-          navigate('/login')
-        }, 8000)
+    if(checkMatchingPasswords(password, password2)){
+      try {
+        const result = await signUpNewUser(email, password)
+        if(result.success){
+          setSuccess('Account created successfully! Please check your email to confirm your account.')
+          setTimeout(() => {
+            navigate('/login')
+          }, 8000)
+        }
+      } catch (error) {
+        setError("an error occurred")
+      } finally {
+        setLoading(false)
       }
-    } catch (error) {
-      setError("an error occurred")
-    } finally {
+    }
+    else{
+      setError('Passwords do not match')
       setLoading(false)
     }
   }
+
 
   return (
     <div className="auth-container">
@@ -50,6 +63,12 @@ const Signup = () => {
             <div className="auth-success">
               <div className="success-icon">✓</div>
               <p>{success}</p>
+            </div>
+          )}
+          {error && (
+            <div className="auth-error">
+              <div className="error-icon">!</div>
+              <p>{error}</p>
             </div>
           )}
           
@@ -86,6 +105,7 @@ const Signup = () => {
                 id="confirmPassword"
                 name="confirmPassword"
                 placeholder="Confirm your password"
+                onChange={(e) => setPassword2(e.target.value)}
                 required
               />
             </div>
