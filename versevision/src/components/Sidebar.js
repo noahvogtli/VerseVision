@@ -63,7 +63,7 @@ function Sidebar() {
             <ul>
               <li 
                 className={isActive('/home') ? 'active' : ''}
-                onClick={() => handleNavigation('/home')}
+                onClick={() => handleNavigation('/')}
               >
                 Home
               </li>
