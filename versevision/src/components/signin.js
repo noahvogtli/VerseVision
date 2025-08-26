@@ -21,7 +21,7 @@ const Signin = () => {
     try {
       const result = await signInUser(email, password)
       if(result.success){
-        navigate('/home')
+        navigate('/')
       } else {
         // Handle login failure
         setError(result.error || "Invalid email or password.")
