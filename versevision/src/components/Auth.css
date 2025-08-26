@@ -1,9 +1,10 @@
 /* Authentication Pages Styling - Consistent with App Design System */
 .auth-container {
-  min-height: 100vh;
+  min-height: 100dvh;
   background: #ffffff;
   display: flex;
   flex-direction: column;
+  
 }
 
 .auth-content {
@@ -12,6 +13,7 @@
   align-items: center;
   justify-content: center;
   padding: 2rem;
+  
 }
 
 .auth-card {
@@ -23,6 +25,7 @@
   width: 50%;
   max-width: 75dvw;
   position: relative;
+  
 }
 
 .auth-header {
@@ -61,6 +64,7 @@
 
 .form-group {
   margin-bottom: 1.5rem;
+  
 }
 
 .form-group label {
