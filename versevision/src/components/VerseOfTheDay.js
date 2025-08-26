@@ -1,5 +1,5 @@
 import React from 'react';
-import './VerseOfTheDay.css';
+import '../VerseOfTheDay.css';
 
 const VerseOfTheDay = ({ verse, text }) => {
   return (
