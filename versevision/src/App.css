@@ -190,7 +190,7 @@
 
 .side-bar {
   width: 25vw;
-  height: 100vh;
+  height: 100dvh;
   background-color: #ffffff;
   position: fixed;
   left: 0;

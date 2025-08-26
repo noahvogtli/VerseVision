@@ -10,6 +10,7 @@ const Signup = () => {
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
   const [loading, setLoading] = useState('')
+  const [success, setSuccess] = useState('')
 
   const {session, signUpNewUser} = UserAuth();
   const navigate = useNavigate()
@@ -18,13 +19,17 @@ const Signup = () => {
   const handleSignUp = async (e) => {
     e.preventDefault()
     setLoading(true)
+    setError('')
+    setSuccess('')
+    
     try {
       const result = await signUpNewUser(email, password)
       if(result.success){
-        navigate('/login')
+        setSuccess('Account created successfully! Please check your email to confirm your account.')
+        setTimeout(() => {
+          navigate('/login')
+        }, 5000)
       }
-
-
     } catch (error) {
       setError("an error occurred")
     } finally {
@@ -84,8 +89,15 @@ const Signup = () => {
             </button>
           </form>
           
+          {success && (
+            <div className="auth-success">
+              <div className="success-icon">✓</div>
+              <p>{success}</p>
+            </div>
+          )}
+          
           <div className="auth-footer">
-            <p>Already have an account? <Link to="/signin" className="auth-link">Sign in</Link></p>
+            <p>Already have an account? <Link to="/login" className="auth-link">Sign in</Link></p>
           </div>
         </div>
       </div>
