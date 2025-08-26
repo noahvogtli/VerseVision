@@ -74,7 +74,7 @@ function Sidebar() {
           <nav className="sidebar-nav">
             <ul>
               <li 
-                className={isActive('/home') ? 'active' : ''}
+                className={isActive('/') ? 'active' : ''}
                 onClick={() => handleNavigation('/')}
               >
                 Home

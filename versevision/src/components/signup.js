@@ -28,7 +28,7 @@ const Signup = () => {
         setSuccess('Account created successfully! Please check your email to confirm your account.')
         setTimeout(() => {
           navigate('/login')
-        }, 5000)
+        }, 8000)
       }
     } catch (error) {
       setError("an error occurred")
@@ -46,6 +46,12 @@ const Signup = () => {
             <h1>Join VerseVision</h1>
             <p>Create your account to start exploring biblical wisdom</p>
           </div>
+          {success && (
+            <div className="auth-success">
+              <div className="success-icon">✓</div>
+              <p>{success}</p>
+            </div>
+          )}
           
           <form className="auth-form" onSubmit={handleSignUp}>
             
@@ -88,13 +94,6 @@ const Signup = () => {
               Create Account
             </button>
           </form>
-          
-          {success && (
-            <div className="auth-success">
-              <div className="success-icon">✓</div>
-              <p>{success}</p>
-            </div>
-          )}
           
           <div className="auth-footer">
             <p>Already have an account? <Link to="/login" className="auth-link">Sign in</Link></p>
