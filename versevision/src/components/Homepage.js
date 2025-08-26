@@ -21,10 +21,11 @@ function Homepage() {
         <div className="homepage-content">
           <div>
             <h1 className="homepage-title">VerseVision</h1>
-            <p className="homepage-subtitle">Advanced Biblical Intelligence Platform</p>
+            <p className="homepage-subtitle">Discover Scripture with clarity and care</p>
             <p className="homepage-description">
-              Leverage cutting-edge artificial intelligence to explore, analyze, and understand 
-              biblical texts with unprecedented depth and accuracy.
+              Welcome to VerseVision—a simple, thoughtful way to spend time in the Word. 
+              Explore a daily verse, ask honest questions, and learn more about the context 
+              and meaning behind the passages you read.
             </p>
           </div>
           
@@ -37,8 +38,8 @@ function Homepage() {
                   <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </div>
-              <h3>Comprehensive Analysis</h3>
-              <p>Access detailed exegesis and scholarly interpretations of biblical passages with AI-powered insights</p>
+              <h3>Daily Inspiration</h3>
+              <p>Begin with a verse of the day to reflect, share, and carry with you.</p>
             </div>
             
             <div className="feature-card">
@@ -47,8 +48,8 @@ function Homepage() {
                   <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </div>
-              <h3>Intelligent Insights</h3>
-              <p>Advanced machine learning algorithms provide contextual understanding and theological analysis</p>
+              <h3>Study Tools</h3>
+              <p>Get clear explanations, helpful context, and guidance for deeper reading.</p>
             </div>
             
             <div className="feature-card">
@@ -57,20 +58,20 @@ function Homepage() {
                   <path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </div>
-              <h3>Interactive Consultation</h3>
-              <p>Engage in sophisticated dialogue with our AI system for comprehensive theological discussions</p>
+              <h3>Guided Conversation</h3>
+              <p>Ask questions in plain language and receive thoughtful, easy-to-read answers.</p>
             </div>
           </div>
           
           <div className="homepage-cta">
-            <h3>Begin Your Exploration</h3>
-            <p>Access the Chat interface to commence your biblical research journey</p>
+            <h3>Start exploring</h3>
+            <p>Open chat to ask a question or continue your study.</p>
             <div
               className="cta-button"
               onClick={() => navigate('/chat')}
               style={{ cursor: 'pointer' }}
             >
-              <span>Access Chat</span>
+              <span>Open Chat</span>
             </div>
           </div>
         </div>
