@@ -63,7 +63,7 @@ const Signin = () => {
                 type="password"
                 id="password"
                 name="password"
-                placeholder="Create a password"
+                placeholder="Enter your password"
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
@@ -73,7 +73,11 @@ const Signin = () => {
             )}
             
             <button type="submit" className="auth-button" disabled={loading}>
-              Log In
+              {loading ? (
+                  <span>Signing In...</span>
+              ) : (
+                'Log In'
+              )}
             </button>
           </form>
 

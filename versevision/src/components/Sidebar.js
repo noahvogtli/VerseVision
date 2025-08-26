@@ -86,6 +86,9 @@ function Sidebar() {
                 Chat
               </li>
               <li>Settings</li>
+              <li className={isActive('/about') ? 'active' : ''}
+                onClick={() => handleNavigation('/about')}>
+                About VerseVision</li>
             </ul>
           </nav>
           
