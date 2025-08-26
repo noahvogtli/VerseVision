@@ -40,8 +40,8 @@ function Sidebar() {
 
   return (
     <>
-      {/* Hamburger Button - Hidden on signin page */}
-      {location.pathname !== '/login' && (
+      {/* Hamburger Button - Hidden on login and signup pages */}
+      {/* {location.pathname !== '/login' && location.pathname !== '/signup' && (
         <button 
           className={`hamburger ${isOpen ? 'open' : ''}`}
           onClick={toggleMenu}
@@ -51,7 +51,19 @@ function Sidebar() {
           <span></span>
           <span></span>
         </button>
-      )}
+      )} */}
+
+
+        <button 
+          className={`hamburger ${isOpen ? 'open' : ''}`}
+          onClick={toggleMenu}
+          aria-label="Toggle menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+    
 
       {/* Sidebar */}
       <div className={`side-bar ${isOpen ? 'open' : ''}`}>
@@ -94,7 +106,7 @@ function Sidebar() {
                 className="signout-button"
                 onClick={() => handleNavigation('/login')}
               >
-                Login
+                Login/Sign Up
               </button>
             </div>
           )}
