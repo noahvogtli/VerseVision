@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { UserAuth } from '../context/AuthContext';
 
 function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,18 +23,35 @@ function Sidebar() {
     return location.pathname.startsWith(path);
   };
 
+
+  const {session, signOut} = UserAuth();
+  
+  const handleSignOut = async (e) => {
+    e.preventDefault()
+    try{
+      await signOut()
+      setIsOpen(false)
+      navigate('/login')
+    } catch (error){
+      console.error(error);
+    }
+  }
+
+
   return (
     <>
-      {/* Hamburger Button */}
-      <button 
-        className={`hamburger ${isOpen ? 'open' : ''}`}
-        onClick={toggleMenu}
-        aria-label="Toggle menu"
-      >
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+      {/* Hamburger Button - Hidden on signin page */}
+      {location.pathname !== '/login' && (
+        <button 
+          className={`hamburger ${isOpen ? 'open' : ''}`}
+          onClick={toggleMenu}
+          aria-label="Toggle menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      )}
 
       {/* Sidebar */}
       <div className={`side-bar ${isOpen ? 'open' : ''}`}>
@@ -44,8 +62,8 @@ function Sidebar() {
           <nav className="sidebar-nav">
             <ul>
               <li 
-                className={isActive('/') ? 'active' : ''}
-                onClick={() => handleNavigation('/')}
+                className={isActive('/home') ? 'active' : ''}
+                onClick={() => handleNavigation('/home')}
               >
                 Home
               </li>
@@ -58,6 +76,29 @@ function Sidebar() {
               <li>Settings</li>
             </ul>
           </nav>
+          
+          {session && (
+                <div className="sidebar-signout">
+                <button 
+                  className="signout-button"
+                  onClick={handleSignOut}
+                >
+                  Sign Out
+                </button>
+              </div>
+            )}
+
+          {!session && (
+              <div className="sidebar-signout">
+              <button 
+                className="signout-button"
+                onClick={() => handleNavigation('/login')}
+              >
+                Login
+              </button>
+            </div>
+          )}
+
         </div>
       </div>
 

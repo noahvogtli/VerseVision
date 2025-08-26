@@ -233,12 +233,14 @@
 .sidebar-nav {
   margin-top: 0;
   
+  
 }
 
 .sidebar-nav ul {
   list-style: none;
   padding: 0;
   margin: 0;
+  
 }
 
 .sidebar-nav li {
@@ -251,6 +253,7 @@
   font-size: 0.95rem;
   font-weight: 400;
   border: 1px solid transparent;
+  
 }
 
 .sidebar-nav li:hover {
@@ -267,6 +270,35 @@
 
 .sidebar-nav li.active:hover {
   background-color: #2980b9;
+}
+
+/* Sign Out Button Styles */
+.sidebar-signout {
+  margin-top: auto;
+  padding-top: 2rem;
+  border-top: 1px solid #e5e5e5;
+}
+
+.signout-button {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  color: black;
+  border: 1px solid black;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.signout-button:hover {
+  background-color: #f8f9fa;
+  transform: translateY(-1px);
+}
+
+.signout-button:active {
+  transform: translateY(0);
 }
 
 @keyframes spin {
@@ -356,7 +388,6 @@
   gap: 1.5rem;
   z-index: 100;
   position: sticky;
-
   top: 0;
   
 }
@@ -370,6 +401,12 @@
   letter-spacing: -0.02em;
   margin-left: 2rem;
   padding-left: 1rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.app-banner h1:hover {
+  color: #374151;
 }
 
 .app-banner img {
@@ -392,7 +429,7 @@ html, body { margin: 0; overflow-x: clip; } /* clip avoids the tiny bar */
 .homepage-container {
   width: 100%;        
   margin: 0 auto;
-  padding-inline: 16px;       
+       
   display: block; 
           
 }
@@ -407,6 +444,7 @@ html, body { margin: 0; overflow-x: clip; } /* clip avoids the tiny bar */
   margin-inline: auto;
   padding: clamp(16px, 3vw, 48px);
   min-width: 0;               /* CRUCIAL: lets it shrink if a parent is flex */
+  /* border: 2px solid black; */
 }
 
 /* 5) grid: allow narrower columns on small screens to avoid pushing layout */
@@ -569,14 +607,14 @@ img, svg {
 
   .homepage-content {
     margin: 0;
-    width: 95%;
+    width: 100%;
     max-width: 100%;
     min-height: auto;
     height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 3rem 2rem;
+    padding: 3rem 5rem;
   }
   
   .homepage-title {
@@ -726,5 +764,9 @@ img, svg {
 
   .app-banner img {
     height: 45px;
+  }
+
+  .signout-button {
+    width: 100%;
   }
 }

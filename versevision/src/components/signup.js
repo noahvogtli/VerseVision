@@ -1,13 +1,96 @@
-import React from 'react'
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import Banner from './Banner';
+import './Auth.css';
+import { UserAuth } from '../context/AuthContext';
+
 
 const Signup = () => {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [error, setError] = useState('')
+  const [loading, setLoading] = useState('')
+
+  const {session, signUpNewUser} = UserAuth();
+  const navigate = useNavigate()
+  // console.log(session)
+
+  const handleSignUp = async (e) => {
+    e.preventDefault()
+    setLoading(true)
+    try {
+      const result = await signUpNewUser(email, password)
+      if(result.success){
+        navigate('/login')
+      }
+
+
+    } catch (error) {
+      setError("an error occurred")
+    } finally {
+      setLoading(false)
+    }
+  }
+
   return (
-    <>
-    <form>
-    <h1>Sign Up:</h1>
-    </form>
-    </>
-  )
-}
+    <div className="auth-container">
+      <Banner />
+      <div className="auth-content">
+        <div className="auth-card">
+          <div className="auth-header">
+            <h1>Join VerseVision</h1>
+            <p>Create your account to start exploring biblical wisdom</p>
+          </div>
+          
+          <form className="auth-form" onSubmit={handleSignUp}>
+            
+            <div className="form-group">
+              <label htmlFor="email">Email Address</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Enter your email"
+                onChange={(e => setEmail(e.target.value))}
+                required
+              />
+            </div>
+            
+            <div className="form-group">
+              <label htmlFor="password">Password</label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Create a password"
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+            </div>
+            
+            <div className="form-group">
+              <label htmlFor="confirmPassword">Confirm Password</label>
+              <input
+                type="password"
+                id="confirmPassword"
+                name="confirmPassword"
+                placeholder="Confirm your password"
+                required
+              />
+            </div>
+            
+            <button type="submit" className="auth-button" disabled={loading}>
+              Create Account
+            </button>
+          </form>
+          
+          <div className="auth-footer">
+            <p>Already have an account? <Link to="/signin" className="auth-link">Sign in</Link></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default Signup;
