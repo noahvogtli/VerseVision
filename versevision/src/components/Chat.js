@@ -3,7 +3,9 @@ import '../App.css';
 import Banner from './Banner';
 
 const Chat = () => {
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState([
+    { type: 'assistant', content: 'Hello, welcome to VerseVision: your personal Bible study assistant. Feel free to ask any questions you have related to the Bible or Christianity.' }
+  ]);
   const [query, setQuery] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -55,6 +57,8 @@ const Chat = () => {
 
       const data = await res.json();
       setMessages(prev => [...prev, { type: 'assistant', content: data.response }]);
+      // console.log("Messages:", messages);
+      // console.log("Latest message:", data.response);
       setCache(prev => ({ ...prev, [userMessage]: data.response }));
     } catch (err) {
       setError('Failed to get response. Please try again.');
@@ -102,7 +106,7 @@ const Chat = () => {
             Send
           </button>
         </form>
-        {/* ✅ Character counter */}
+        
         <div className="char-counter">
           {query.length}/200 characters
         </div>

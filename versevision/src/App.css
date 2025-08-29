@@ -19,6 +19,7 @@
   flex-direction: column;
   overflow: hidden;
   padding: 0 2rem 2rem 2rem;
+  
 }
 
 .messages {
@@ -28,6 +29,7 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  
 }
 
 .message {
@@ -37,6 +39,7 @@
   line-height: 1.6;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   margin-right: 2rem;
+  
 }
 
 .message.user {
@@ -44,6 +47,7 @@
   background-color: #1a1a1a;
   color: #ffffff;
   border: 1px solid #1a1a1a;
+  
 }
 
 .message.assistant {
@@ -51,6 +55,7 @@
   background-color: #ffffff;
   color: #1a1a1a;
   border: 1px solid #e5e5e5;
+  
 }
 
 .message.error {
@@ -59,12 +64,17 @@
   color: #dc2626;
   border: 1px solid #fecaca;
   max-width: 90%;
+  
 }
 
-.message-content {
+.message-content{
   white-space: pre-wrap;
   font-size: 0.95rem;
   font-weight: 400;
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
 }
 
 .input-form {
@@ -329,7 +339,7 @@
   }
 
   .message {
-    max-width: 80%;
+    max-width: 85%;
     padding: 0.8rem 1rem;
     line-height: 1.6;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -748,6 +758,16 @@ img, svg {
   .cta-button {
     padding: 0.6rem 1.2rem;
     font-size: 0.75rem;
+  }
+
+  .message-content{
+    white-space: pre-wrap;
+    font-size: 0.80rem;
+    font-weight: 400;
+    word-wrap: break-word;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
   }
 }
 
