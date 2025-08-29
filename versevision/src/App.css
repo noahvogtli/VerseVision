@@ -448,8 +448,7 @@
 html, body { 
   margin: 0; 
   overflow-x: clip; /* clip avoids the tiny bar */
-  overscroll-behavior: none;
-  -webkit-overflow-scrolling: touch;
+
 }
 
 /* 2) wrapper: no vw width */
