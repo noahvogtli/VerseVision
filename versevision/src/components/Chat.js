@@ -4,7 +4,7 @@ import Banner from './Banner';
 
 const Chat = () => {
   const [messages, setMessages] = useState([
-    { type: 'assistant', content: 'Hello, welcome to VerseVision: your personal Bible study assistant. Feel free to ask any questions you have related to the Bible or Christianity.' }
+    { type: 'assistant', content: 'Welcome to VerseVision. I am your AI-powered Bible study assistant, designed to help you explore Scripture and deepen your understanding of Christianity. How may I assist you today?' }
   ]);
   const [query, setQuery] = useState('');
   const [loading, setLoading] = useState(false);
