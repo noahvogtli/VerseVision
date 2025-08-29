@@ -456,6 +456,8 @@ html, body {
 .homepage-wrapper {
   width: 100%;
   background: #ffffff;
+  
+  padding-bottom: 5%;
 }
 
 /* 3) container: NO max-content; give it a normal max-width and side padding */
