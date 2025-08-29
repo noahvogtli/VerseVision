@@ -9,6 +9,11 @@
   background: #ffffff;
   overflow: hidden;
   align-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 
@@ -29,6 +34,8 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
   
 }
 
@@ -438,7 +445,12 @@
 
 /* 1) sane box sizing + no accidental body margin */
 *, *::before, *::after { box-sizing: border-box; }
-html, body { margin: 0; overflow-x: clip; } /* clip avoids the tiny bar */
+html, body { 
+  margin: 0; 
+  overflow-x: clip; /* clip avoids the tiny bar */
+  overscroll-behavior: none;
+  -webkit-overflow-scrolling: touch;
+}
 
 /* 2) wrapper: no vw width */
 .homepage-wrapper {
