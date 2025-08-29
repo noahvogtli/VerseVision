@@ -95,6 +95,11 @@
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   background: #ffffff;
+  resize: none;
+  overflow: hidden;
+  min-height: 1.2rem;
+  max-height: 8rem;
+  line-height: 1.2;
 }
 
 .query-input:focus {
@@ -114,6 +119,8 @@
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-size: 0.875rem;
+  align-self: flex-end;
+  
 }
 
 .submit-button:hover {
@@ -762,7 +769,7 @@ img, svg {
 
   .message-content{
     white-space: pre-wrap;
-    font-size: 0.80rem;
+    font-size: 0.85rem;
     font-weight: 400;
     word-wrap: break-word;
     word-break: break-word;
