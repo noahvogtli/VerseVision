@@ -73,6 +73,7 @@
   padding: 2rem;
   background: #ffffff;
   border-top: 1px solid #e5e5e5;
+  /* border: 1px solid black; */
 }
 
 .query-input {
@@ -85,6 +86,11 @@
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   background: #ffffff;
+  resize: none;
+  overflow: hidden;
+  min-height: 3.5rem;
+  line-height: 1.5;
+  border: 1px solid black;
 }
 
 .query-input:focus {
@@ -344,15 +350,16 @@
   }
 
   .query-input {
-    padding: 0.875rem 1rem;
-    margin-left: 0;
+    /* padding: 0.875rem 1rem; */
     /* border: 2px solid black; */
-    margin-left: -5%;
+    min-height: 3.25rem;
+    font-size: 14px;
   }
 
   .submit-button {
     padding: 0.875rem 1.5rem;
     font-size: 0.8rem;
+    
   }
 
   .sidebar-content {
@@ -748,6 +755,21 @@ img, svg {
   .cta-button {
     padding: 0.6rem 1.2rem;
     font-size: 0.75rem;
+  }
+  
+  .query-input {
+    /* padding: 0.875rem 1rem; */
+    margin-left: -7%;
+    /* border: 2px solid black; */
+    min-height: 3.25rem;
+    font-size: 14px;
+  }
+
+  .submit-button {
+    padding: 1.125rem 1.5rem;
+    font-size: 0.8rem;
+    margin-right: -7%;
+    align-self: flex-end;
   }
 }
 
