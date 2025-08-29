@@ -20,6 +20,13 @@ const Chat = () => {
     scrollToBottom();
   }, [messages]);
 
+  const resetTextareaHeight = () => {
+    const textarea = document.querySelector('.query-input');
+    if (textarea) {
+      textarea.style.height = 'auto';
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!query.trim()) return;
@@ -32,6 +39,7 @@ const Chat = () => {
 
     const userMessage = query.trim();
     setQuery('');
+    resetTextareaHeight();
     setMessages(prev => [...prev, { type: 'user', content: userMessage }]);
 
     if (cache[userMessage]) {
