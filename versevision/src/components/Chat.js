@@ -90,18 +90,13 @@ const Chat = () => {
           <div ref={messagesEndRef} />
         </div>
         <form onSubmit={handleSubmit} className="input-form">
-          <textarea
+          <input
+            type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Ask anything Christian related..."
+            placeholder="Ask about a Bible verse or Christian topic..."
             className="query-input"
             maxLength={200}
-            rows={1}
-            onInput={(e) => {
-              // Auto-resize the textarea
-              e.target.style.height = 'auto';
-              e.target.style.height = e.target.scrollHeight + 'px';
-            }}
           />
           <button type="submit" disabled={loading} className="submit-button">
             Send
