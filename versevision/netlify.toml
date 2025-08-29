@@ -1,7 +1,3 @@
-[build]
-  command = "npm run build"
-  publish = "build"
-
 [secrets]
   # Tell Netlify’s secret scanner to ignore Supabase public keys
   omit_keys = ["REACT_APP_SUPABASE_URL", "REACT_APP_SUPABASE_ANON_KEY"]
