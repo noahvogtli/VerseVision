@@ -21,7 +21,7 @@ function Homepage() {
         <div className="homepage-content">
           <div>
             <h1 className="homepage-title">Welcome to VerseVision</h1>
-            <p className="homepage-subtitle">Explore Scripture with clarity and care</p>
+            <p className="homepage-subtitle">Explore Scripture in a new way</p>
             <p className="homepage-description">
               a simple, thoughtful way to spend time in the Bible.
               Read a daily verse, ask questions in plain language, and understand the context
