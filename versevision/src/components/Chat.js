@@ -49,14 +49,17 @@ const Chat = () => {
     setError('');
 
     try {
-      const res = await fetch('https://versevision.onrender.com/api/chat', {
+      const res = await fetch('http://localhost:3001/api/chat', {
         // localhost:3001/
         // https://versevision.onrender.com/api/chat
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ query: userMessage, history: messages }),
+        body: JSON.stringify({ 
+          message: userMessage,
+          history: messages
+        }),
       });
 
       if (!res.ok) {
@@ -64,10 +67,15 @@ const Chat = () => {
       }
 
       const data = await res.json();
-      setMessages(prev => [...prev, { type: 'assistant', content: data.response }]);
-      // console.log("Messages:", messages);
-      // console.log("Latest message:", data.response);
-      setCache(prev => ({ ...prev, [userMessage]: data.response }));
+      console.log("API response:", data);
+      
+      // Extract the reply from the server response
+      const responseContent = data.reply || 'No response received';
+      
+      console.log("Extracted response content:", responseContent);
+      
+      setMessages(prev => [...prev, { type: 'assistant', content: responseContent }]);
+      setCache(prev => ({ ...prev, [userMessage]: responseContent }));
     } catch (err) {
       setError('Failed to get response. Please try again.');
       console.error('Error:', err);
