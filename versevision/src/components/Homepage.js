@@ -10,7 +10,7 @@ function Homepage() {
 
   return (
     <div className="homepage-wrapper">
-      <Banner/>
+      
       {verseOfDay && (
         <VerseOfTheDay
           verse={verseOfDay.verse}

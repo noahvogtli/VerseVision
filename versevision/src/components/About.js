@@ -4,7 +4,7 @@ import Banner from './Banner';
 function About() {
   return (
     <div className="homepage-wrapper">
-      <Banner/>
+      
       <div className="homepage-container">
         <div className="homepage-content">
           <div>

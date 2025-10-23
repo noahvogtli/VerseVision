@@ -86,7 +86,7 @@ const Chat = () => {
 
   return (
     <div className="chat-container">
-      <Banner/>
+      
       <div className="chat-box">
         <div className="messages">
           {messages.map((message, index) => (

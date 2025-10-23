@@ -35,7 +35,7 @@ const Signin = () => {
 
   return (
     <div className="auth-container">
-      <Banner />
+      
       <div className="auth-content">
         <div className="auth-card">
           <div className="auth-header">

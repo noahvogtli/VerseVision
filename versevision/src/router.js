@@ -7,6 +7,7 @@ import Homepage from "./components/Homepage";
 import PrivateRoute from "./components/PrivateRoute";
 import About from "./components/About";
 import Settings from "./components/Settings";
+import Legal from "./components/Legal";
 
 export const router = createBrowserRouter([
   {
@@ -19,7 +20,8 @@ export const router = createBrowserRouter([
       { path: "signup", element: <Signup /> },
       { path: "login", element: <Signin /> },
       { path: "about", element: <About /> },
-      { path: "settings", element: <Settings /> }
+      { path: "settings", element: <Settings /> },
+      { path: "legal", element: <Legal />}
     ]
   }
 ]);
