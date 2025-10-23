@@ -3,9 +3,7 @@ import '../App.css';
 import Banner from './Banner';
 
 const Chat = () => {
-  const [messages, setMessages] = useState([
-    { type: 'assistant', content: 'Hello, welcome to VerseVision: your personal Bible study assistant. Feel free to ask any questions you have related to the Bible or Christianity.' }
-  ]);
+  const [messages, setMessages] = useState([]);
   const [query, setQuery] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -52,6 +50,8 @@ const Chat = () => {
 
     try {
       const res = await fetch('https://versevision.onrender.com/api/chat', {
+        // localhost:3001/
+        // https://versevision.onrender.com/api/chat
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -108,6 +108,12 @@ const Chat = () => {
             placeholder="Ask anything..."
             className="query-input"
             maxLength={200}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                handleSubmit(e);
+              }
+            }}
             rows="1"
             onInput={(e) => {
               e.target.style.height = 'auto';

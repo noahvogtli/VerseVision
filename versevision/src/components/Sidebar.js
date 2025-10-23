@@ -53,7 +53,6 @@ function Sidebar() {
         </button>
       )} */}
 
-
         <button 
           className={`hamburger ${isOpen ? 'open' : ''}`}
           onClick={toggleMenu}
@@ -85,7 +84,10 @@ function Sidebar() {
               >
                 Chat
               </li>
-              <li>Settings</li>
+              <li className={isActive('/settings') ? 'active' : ''}
+                onClick={() => handleNavigation('/settings')}>
+                Settings
+              </li>
               <li className={isActive('/about') ? 'active' : ''}
                 onClick={() => handleNavigation('/about')}>
                 About VerseVision</li>

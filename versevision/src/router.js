@@ -6,6 +6,7 @@ import Chat from "./components/Chat";
 import Homepage from "./components/Homepage";
 import PrivateRoute from "./components/PrivateRoute";
 import About from "./components/About";
+import Settings from "./components/Settings";
 
 export const router = createBrowserRouter([
   {
@@ -17,7 +18,8 @@ export const router = createBrowserRouter([
       { path: "chat", element: <PrivateRoute><Chat /></PrivateRoute>},
       { path: "signup", element: <Signup /> },
       { path: "login", element: <Signin /> },
-      { path: "about", element: <About /> }
+      { path: "about", element: <About /> },
+      { path: "settings", element: <Settings /> }
     ]
   }
 ]);
