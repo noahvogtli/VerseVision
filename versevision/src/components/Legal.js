@@ -5,7 +5,6 @@ import "./Legal.css";
 export default function Legal() {
   return (
     <>
-      <Banner />
       <div className="legal-page">
         <div className="legal-container">
           <main className="legal-content">
@@ -117,6 +116,7 @@ export default function Legal() {
           </main>
         </div>
       </div>
+      <br></br>
     </>
   );
 }

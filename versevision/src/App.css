@@ -1,3 +1,7 @@
+html, body {
+  overscroll-behavior: none;
+}
+
 
 .chat-container {
   margin-left: 0;
@@ -14,11 +18,13 @@
   left: 0;
   right: 0;
   bottom: 0;
+  overscroll-behavior: none;
 }
 
 
 
 .chat-box {
+  margin-top: 7.5%;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -171,7 +177,6 @@
   left: 2rem;
   width: 2rem;
   height: 2rem;
-  
   background: none;
   border: none;
   cursor: pointer;
@@ -207,7 +212,7 @@
 .sidebar-overlay {
   position: fixed;
   top: 0;
-  left: 0;
+  left: 0;  
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.3);
@@ -417,7 +422,9 @@
   z-index: 100;
   position: sticky;
   top: 0;
-  
+  overscroll-behavior: none;
+  overscroll-behavior-y: none;
+  overscroll-behavior-x: none;
 }
 
 .app-banner h1 {
@@ -431,6 +438,7 @@
   padding-left: 1rem;
   cursor: pointer;
   transition: color 0.3s ease;
+  overscroll-behavior: none;
 }
 
 .app-banner h1:hover {

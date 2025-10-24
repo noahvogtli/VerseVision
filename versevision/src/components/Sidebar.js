@@ -14,6 +14,7 @@ function Sidebar() {
   const handleNavigation = (path) => {
     navigate(path);
     setIsOpen(false); // Close menu after navigation
+    window.scrollTo(0, 0); 
   };
 
   const isActive = (path) => {

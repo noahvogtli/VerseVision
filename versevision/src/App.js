@@ -9,7 +9,7 @@ const App = () => {
   return (
     <div>
       <Banner />
-      <Sidebar />
+
       <Outlet />
       <Footer />
     </div>
