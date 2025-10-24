@@ -1,6 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import '../App.css';
 import Banner from './Banner';
+import { useLocation } from "react-router-dom";
+
 
 const Chat = () => {
   const [messages, setMessages] = useState([]);
@@ -9,6 +11,29 @@ const Chat = () => {
   const [error, setError] = useState('');
   const [cache, setCache] = useState({});
   const messagesEndRef = useRef(null);
+
+  const location = useLocation();
+  const verseFromBanner = location.state?.verse;
+  
+  useEffect(() => {
+    if (verseFromBanner) {
+      setQuery(verseFromBanner);
+    }
+  }, [verseFromBanner]);
+  
+  useEffect(() => {
+    if (query && verseFromBanner) {
+      // Give React time to render the button before clicking
+      const timer = setTimeout(() => {
+        const btn = document.getElementById('submit-button');
+        if (btn) btn.click();
+      }, 300); // small delay (300ms) ensures element exists
+      return () => clearTimeout(timer);
+    }
+  }, [query, verseFromBanner]);
+  
+
+
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -128,7 +153,7 @@ const Chat = () => {
               e.target.style.height = e.target.scrollHeight + 'px';
             }}
           />
-          <button type="submit" disabled={loading} className="submit-button">
+          <button type="submit" disabled={loading} className="submit-button" id='submit-button'>
             Send
           </button>
         </form>
