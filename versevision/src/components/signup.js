@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Banner from './Banner';
-import './Auth.css';
+import '../styling/Auth.css';
 import { UserAuth } from '../context/AuthContext';
 
 
@@ -121,9 +121,12 @@ const Signup = () => {
           
           <div className="auth-footer">
             <p>Already have an account? <Link to="/login" className="auth-link">Sign in</Link></p>
+            
           </div>
         </div>
+        <p className='policy-notice'>By creating an account you agree to the Terms of Service and Private Policy</p>
       </div>
+      
     </div>
   );
 };

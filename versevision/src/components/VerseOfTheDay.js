@@ -1,5 +1,5 @@
 import React from 'react';
-import '../VerseOfTheDay.css';
+import '../styling/VerseOfTheDay.css';
 import Chat from './Chat';
 import { useNavigate } from 'react-router-dom';
 

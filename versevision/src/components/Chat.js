@@ -13,7 +13,7 @@ const Chat = () => {
   const messagesEndRef = useRef(null);
 
   const location = useLocation();
-  const verseFromBanner = location.state?.verse;
+  let verseFromBanner = location.state?.verse;
   
   useEffect(() => {
     if (verseFromBanner) {
@@ -22,15 +22,19 @@ const Chat = () => {
   }, [verseFromBanner]);
   
   useEffect(() => {
-    if (query && verseFromBanner) {
-      // Give React time to render the button before clicking
+    if (verseFromBanner) {
+      setQuery(verseFromBanner);
+  
+      // Wait a bit for state to update and button to render, then submit once
       const timer = setTimeout(() => {
         const btn = document.getElementById('submit-button');
         if (btn) btn.click();
-      }, 300); // small delay (300ms) ensures element exists
+      }, 300);
+  
       return () => clearTimeout(timer);
     }
-  }, [query, verseFromBanner]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // 👈 empty deps — runs only once on mount
   
 
 

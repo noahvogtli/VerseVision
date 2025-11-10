@@ -13,6 +13,7 @@
   align-items: center;
   justify-content: center;
   padding: 2rem;
+  flex-direction: column;
   
 }
 
@@ -356,8 +357,22 @@
   }
 }
 
+.policy-notice{
+  font-size: 12px;
+  font-style: italic;
+  margin-top: -1%;
+  text-align: center;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
+  
+  .policy-notice{
+
+    font-style: italic;
+    margin-bottom: -30%;
+  }
+  
   .auth-content {
     padding: 1rem;
   }

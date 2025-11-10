@@ -1,5 +1,5 @@
 html, body {
-  overscroll-behavior: none;
+  overscroll-behavior: none;  
 }
 
 
@@ -351,7 +351,7 @@ html, body {
 
   .chat-box {
     padding: 0 1.5rem 1.5rem 1.5rem;
-    
+    margin-top: 20%;
   }
 
   .messages {
@@ -380,7 +380,7 @@ html, body {
     padding: 0.875rem 1rem;
     margin-left: 0;
     /* border: 2px solid black; */
-    margin-left: -5%;
+    margin-left: -2%;
   }
 
   .submit-button {
@@ -427,9 +427,9 @@ html, body {
 .app-banner h1 {
   margin: 0;
   font-size: 2.5rem;
-  font-weight: 400;
+  font-weight: normal;
   color: #1a1a1a;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   letter-spacing: -0.02em;
   margin-left: 2rem;
   padding-left: 1rem;
@@ -619,6 +619,14 @@ img, svg {
   color: #ffffff;
 }
 
+@media (max-width: 1080px) {
+  .chat-box {
+    padding: 0 1.5rem 1.5rem 1.5rem;
+    margin-top: 15%;
+  }
+}
+
+
 @media (max-width: 768px) {
   .hamburger {
     position: fixed;
@@ -653,7 +661,9 @@ img, svg {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 3rem 5rem;
+    padding-top: 3rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
   }
   
   .homepage-title {

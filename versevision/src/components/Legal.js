@@ -1,6 +1,6 @@
 import React from "react";
 import Banner from "./Banner";
-import "./Legal.css";
+import '../styling/Legal.css';
 
 export default function Legal() {
   return (
