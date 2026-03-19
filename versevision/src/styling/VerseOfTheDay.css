@@ -6,10 +6,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 2rem;
     padding-bottom: 2.5dvh;
     margin: 0 auto;
-    
+
+    cursor: pointer;
 }
 
 .verse-content {

@@ -2,12 +2,16 @@ import React from 'react';
 import './App.css';
 import { Outlet } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
+import Banner from './components/Banner';
+import Footer from './components/Footer';
 
 const App = () => {
   return (
     <div>
-      <Sidebar />
+      <Banner />
+
       <Outlet />
+      <Footer />
     </div>
   );
 };

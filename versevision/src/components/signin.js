@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Banner from './Banner';
-import './Auth.css';
+import '../styling/Auth.css';
 import { UserAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 
@@ -35,7 +35,7 @@ const Signin = () => {
 
   return (
     <div className="auth-container">
-      <Banner />
+      
       <div className="auth-content">
         <div className="auth-card">
           <div className="auth-header">

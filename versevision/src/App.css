@@ -1,3 +1,7 @@
+html, body {
+  overscroll-behavior: none;  
+}
+
 
 .chat-container {
   margin-left: 0;
@@ -14,11 +18,13 @@
   left: 0;
   right: 0;
   bottom: 0;
+  overscroll-behavior: none;
 }
 
 
 
 .chat-box {
+  margin-top: 7.5%;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -171,7 +177,6 @@
   left: 2rem;
   width: 2rem;
   height: 2rem;
-  
   background: none;
   border: none;
   cursor: pointer;
@@ -207,7 +212,7 @@
 .sidebar-overlay {
   position: fixed;
   top: 0;
-  left: 0;
+  left: 0;  
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.3);
@@ -238,7 +243,7 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  
+  text-align: left;
 }
 
 .sidebar-header {
@@ -346,7 +351,7 @@
 
   .chat-box {
     padding: 0 1.5rem 1.5rem 1.5rem;
-    
+    margin-top: 20%;
   }
 
   .messages {
@@ -375,7 +380,7 @@
     padding: 0.875rem 1rem;
     margin-left: 0;
     /* border: 2px solid black; */
-    margin-left: -5%;
+    margin-left: -2%;
   }
 
   .submit-button {
@@ -407,7 +412,7 @@
 .app-banner {
   width: 100dvw;
   background: #ffffff;
-  padding: 2rem 0;
+  padding: 1.5rem;
   text-align: center;
   border-bottom: 1px solid #e5e5e5;
   display: flex;
@@ -417,20 +422,20 @@
   z-index: 100;
   position: sticky;
   top: 0;
-  
 }
 
 .app-banner h1 {
   margin: 0;
   font-size: 2.5rem;
-  font-weight: 400;
+  font-weight: normal;
   color: #1a1a1a;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   letter-spacing: -0.02em;
   margin-left: 2rem;
   padding-left: 1rem;
   cursor: pointer;
   transition: color 0.3s ease;
+  overscroll-behavior: none;
 }
 
 .app-banner h1:hover {
@@ -614,6 +619,14 @@ img, svg {
   color: #ffffff;
 }
 
+@media (max-width: 1080px) {
+  .chat-box {
+    padding: 0 1.5rem 1.5rem 1.5rem;
+    margin-top: 15%;
+  }
+}
+
+
 @media (max-width: 768px) {
   .hamburger {
     position: fixed;
@@ -648,7 +661,9 @@ img, svg {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 3rem 5rem;
+    padding-top: 3rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
   }
   
   .homepage-title {

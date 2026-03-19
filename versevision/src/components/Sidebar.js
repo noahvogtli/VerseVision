@@ -14,6 +14,7 @@ function Sidebar() {
   const handleNavigation = (path) => {
     navigate(path);
     setIsOpen(false); // Close menu after navigation
+    window.scrollTo(0, 0); 
   };
 
   const isActive = (path) => {
@@ -53,7 +54,6 @@ function Sidebar() {
         </button>
       )} */}
 
-
         <button 
           className={`hamburger ${isOpen ? 'open' : ''}`}
           onClick={toggleMenu}
@@ -85,7 +85,10 @@ function Sidebar() {
               >
                 Chat
               </li>
-              <li>Settings</li>
+              <li className={isActive('/settings') ? 'active' : ''}
+                onClick={() => handleNavigation('/settings')}>
+                Settings
+              </li>
               <li className={isActive('/about') ? 'active' : ''}
                 onClick={() => handleNavigation('/about')}>
                 About VerseVision</li>

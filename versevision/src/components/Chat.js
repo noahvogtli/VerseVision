@@ -1,16 +1,43 @@
 import React, { useState, useRef, useEffect } from 'react';
 import '../App.css';
 import Banner from './Banner';
+import { useLocation } from "react-router-dom";
+
 
 const Chat = () => {
-  const [messages, setMessages] = useState([
-    { type: 'assistant', content: 'Hello, welcome to VerseVision: your personal Bible study assistant. Feel free to ask any questions you have related to the Bible or Christianity.' }
-  ]);
+  const [messages, setMessages] = useState([]);
   const [query, setQuery] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [cache, setCache] = useState({});
   const messagesEndRef = useRef(null);
+
+  const location = useLocation();
+  let verseFromBanner = location.state?.verse;
+  
+  useEffect(() => {
+    if (verseFromBanner) {
+      setQuery(verseFromBanner);
+    }
+  }, [verseFromBanner]);
+  
+  useEffect(() => {
+    if (verseFromBanner) {
+      setQuery(verseFromBanner);
+  
+      // Wait a bit for state to update and button to render, then submit once
+      const timer = setTimeout(() => {
+        const btn = document.getElementById('submit-button');
+        if (btn) btn.click();
+      }, 300);
+  
+      return () => clearTimeout(timer);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // 👈 empty deps — runs only once on mount
+  
+
+
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -51,12 +78,17 @@ const Chat = () => {
     setError('');
 
     try {
-      const res = await fetch('https://versevision.onrender.com/api/chat', {
+      const res = await fetch('http://localhost:3001/api/chat', {
+        // localhost:3001/
+        // https://versevision.onrender.com/api/chat
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ query: userMessage, history: messages }),
+        body: JSON.stringify({ 
+          message: userMessage,
+          history: messages
+        }),
       });
 
       if (!res.ok) {
@@ -64,10 +96,15 @@ const Chat = () => {
       }
 
       const data = await res.json();
-      setMessages(prev => [...prev, { type: 'assistant', content: data.response }]);
-      // console.log("Messages:", messages);
-      // console.log("Latest message:", data.response);
-      setCache(prev => ({ ...prev, [userMessage]: data.response }));
+      console.log("API response:", data);
+      
+      // Extract the reply from the server response
+      const responseContent = data.reply || 'No response received';
+      
+      console.log("Extracted response content:", responseContent);
+      
+      setMessages(prev => [...prev, { type: 'assistant', content: responseContent }]);
+      setCache(prev => ({ ...prev, [userMessage]: responseContent }));
     } catch (err) {
       setError('Failed to get response. Please try again.');
       console.error('Error:', err);
@@ -78,7 +115,7 @@ const Chat = () => {
 
   return (
     <div className="chat-container">
-      <Banner/>
+      
       <div className="chat-box">
         <div className="messages">
           {messages.map((message, index) => (
@@ -108,13 +145,19 @@ const Chat = () => {
             placeholder="Ask anything..."
             className="query-input"
             maxLength={200}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                handleSubmit(e);
+              }
+            }}
             rows="1"
             onInput={(e) => {
               e.target.style.height = 'auto';
               e.target.style.height = e.target.scrollHeight + 'px';
             }}
           />
-          <button type="submit" disabled={loading} className="submit-button">
+          <button type="submit" disabled={loading} className="submit-button" id='submit-button'>
             Send
           </button>
         </form>
